@@ -89,5 +89,8 @@ def py_repositories(**reqs):
     newreqs = {}
     for reqname, req_file_label in reqs.items():
         newreqs[req_file_label] = reqname
+        
+    # Add in the requirements_internal.txt file
+    newreqs[Label("//:requirements_internal.txt")] = "_internal"
 
     py_requirements(name="requirements", reqs=newreqs)
